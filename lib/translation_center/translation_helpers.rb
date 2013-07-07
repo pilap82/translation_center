@@ -118,7 +118,7 @@ module I18n
         if TranslationCenter::CONFIG['inspector'] == 'off' || category == 'translation_center'
           %(<span class="translation_missing" title="translation missing: #{keys.join('.')}">#{key}</span>)
         else
-          %(<span class="translation_missing tc-inspector-key" data-locale='#{I18n.locale}' data-type="#{translation_key.try(:status, I18n.locale)}" data-id="#{translation_key.id}" title="translation missing: #{keys.join('.')}">#{key}</span>)
+          %(<span class="translation_missing tc-inspector-key" data-locale='#{I18n.locale}' data-type="#{translation_key.try(:status, I18n.locale)}" data-id="#{translation_key.try(:id)}" title="translation missing: #{keys.join('.')}">#{key}</span>)
         end
       end
 
