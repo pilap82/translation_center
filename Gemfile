@@ -5,7 +5,7 @@ source "http://rubygems.org"
 ###########################IMPORTANT################################
 ####################################################################
 ####################################################################
-# When add new gem, don't forget to add it to 
+# When add new gem, don't forget to add it to
 # 1- engine.rb
 # 2- translation_center.gemspec
 ####################################################################
@@ -17,7 +17,7 @@ gemspec
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem 'mysql2'
+# gem 'mysql2'
 gem 'haml'
 gem 'haml-rails'
 gem 'acts_as_votable'
