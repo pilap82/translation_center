@@ -1,3 +1,8 @@
+## Modified by pilap82 to address some issues
+  * errors in migrations
+  * error in translations_helper (added a try)
+  * error in a view
+
 ## Translation Center Status
 [![Code Climate](https://codeclimate.com/github/BadrIT/translation_center.png)](https://codeclimate.com/github/BadrIT/translation_center)
 [![Gem Version](https://badge.fury.io/rb/translation_center.png)](http://badge.fury.io/rb/translation_center)
@@ -57,7 +62,7 @@ This will add three languages to the translation center, you need to add them in
 ```ruby
 development:
   lang:
-    en: 
+    en:
       name: 'English'
       direction: 'ltr'
     ar:
@@ -93,7 +98,7 @@ and change the `translator_type` in `translation_center.yml` to the translator m
 # tranlator_type: 'User'
 ```
 
-In routes file add 
+In routes file add
 
 ```ruby
 mount TranslationCenter::Engine => "/translation_center"
@@ -124,7 +129,7 @@ To migrate translations from TranslationCenter database to yaml files
 rake translation_center:db2yaml
 ```
 
-To migrate translations from yaml files to TranslationCenter database 
+To migrate translations from yaml files to TranslationCenter database
 
 ```ruby
 rake translation_center:yaml2db
@@ -181,10 +186,10 @@ module TranslationCenter
     end
 
   end
-end  
+end
 ```
 
-**Email attribute:** 
+**Email attribute:**
 
 Translation Center assumes that the translator model (for example `User`) has an `email` attribute, this attribute is used when showing translations, activity log in dashboard and updating existing translations.
 

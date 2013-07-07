@@ -4,7 +4,7 @@ module TranslationCenter
   def self.prepare_translator
 
     translator = TranslationCenter::CONFIG['translator_type'].camelize.constantize.where(TranslationCenter::CONFIG['identifier_type'] => TranslationCenter::CONFIG['yaml_translator_identifier']).first
-    
+
     # if translator doesn't exist then create him
     if translator.blank?
       translator = TranslationCenter::CONFIG['translator_type'].camelize.constantize.new(TranslationCenter::CONFIG['identifier_type'] => TranslationCenter::CONFIG['yaml_translator_identifier'])
@@ -118,7 +118,7 @@ module I18n
         if TranslationCenter::CONFIG['inspector'] == 'off' || category == 'translation_center'
           %(<span class="translation_missing" title="translation missing: #{keys.join('.')}">#{key}</span>)
         else
-          %(<span class="translation_missing tc-inspector-key" data-locale='#{I18n.locale}' data-type="#{translation_key.status(I18n.locale)}" data-id="#{translation_key.id}" title="translation missing: #{keys.join('.')}">#{key}</span>)
+          %(<span class="translation_missing tc-inspector-key" data-locale='#{I18n.locale}' data-type="#{translation_key.try(:status, I18n.locale)}" data-id="#{translation_key.id}" title="translation missing: #{keys.join('.')}">#{key}</span>)
         end
       end
 
